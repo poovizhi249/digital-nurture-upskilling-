@@ -1,0 +1,32 @@
+
+/* Remove bullets */
+.menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Space between items */
+.menu li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+/* Link states */
+a:link {
+    color: blue;
+    text-decoration: none;
+}
+
+a:visited {
+    color: purple;
+}
+
+a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+a:active {
+    color: orange;
+}

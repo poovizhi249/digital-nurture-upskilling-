@@ -1,0 +1,24 @@
+
+/* Event card box model */
+.eventCard {
+    border: 2px solid black;
+    padding: 20px;
+    margin: 20px;
+}
+
+/* Input highlight */
+.inputBox {
+    padding: 10px;
+    border: 2px solid gray;
+}
+
+/* Focus outline */
+.inputBox:focus {
+    outline: 3px solid blue;
+}
+
+/* visibility vs display */
+.hiddenDemo {
+    visibility: hidden; /* space remains */
+    /* display: none; */ /* removes element completely */
+}

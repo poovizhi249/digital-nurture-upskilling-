@@ -1,0 +1,22 @@
+
+/* Font family from Google Fonts */
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Font styling */
+h1 {
+    font-size: 32px;
+    font-weight: 700;
+    font-style: normal;
+    text-align: center;
+}
+
+/* Text formatting */
+.desc {
+    font-size: 18px;
+    text-align: justify;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    line-height: 1.6;
+}
