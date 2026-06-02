@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Nearby Events Finder</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Find Nearby Events</h2>
+
+<!-- Button -->
+<button onclick="findLocation()">Find Nearby Events</button>
+
+<!-- Output -->
+<p id="output"></p>
+
+<script>
+
+    function findLocation() {
+
+        const options = {
+            enableHighAccuracy: true,
+            timeout: 10000,
+            maximumAge: 0
+        };
+
+        if (navigator.geolocation) {
+
+            navigator.geolocation.getCurrentPosition(
+                showPosition,
+                showError,
+                options
+            );
+
+        } else {
+            document.getElementById("output").innerHTML =
+                "Geolocation is not supported by this browser.";
+        }
+    }
+
+    // Success callback
+    function showPosition(position) {
+        let lat = position.coords.latitude;
+        let lon = position.coords.longitude;
+
+        document.getElementById("output").innerHTML =
+            "Your Location:<br>Latitude: " + lat +
+            "<br>Longitude: " + lon;
+    }
+
+    // Error callback
+    function showError(error) {
+
+        switch (error.code) {
+
+            case error.PERMISSION_DENIED:
+                document.getElementById("output").innerHTML =
+                    "User denied the request for Geolocation.";
+                break;
+
+            case error.POSITION_UNAVAILABLE:
+                document.getElementById("output").innerHTML =
+                    "Location information is unavailable.";
+                break;
+
+            case error.TIMEOUT:
+                document.getElementById("output").innerHTML =
+                    "The request to get user location timed out.";
+                break;
+
+            case error.UNKNOWN_ERROR:
+                document.getElementById("output").innerHTML =
+                    "An unknown error occurred.";
+                break;
+        }
+    }
+
+</script>
+
+</body>
+
+</html>

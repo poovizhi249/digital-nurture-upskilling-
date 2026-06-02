@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Event Promo Video</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+        }
+
+        video {
+            width: 400px;
+            border: 2px solid black;
+            border-radius: 10px;
+        }
+
+        #msg {
+            color: green;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body onbeforeunload="return warnUser()">
+
+<h2>Community Event Promo</h2>
+
+<!-- Video Element -->
+<video controls oncanplay="videoReady()">
+    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+    Your browser does not support video tag.
+</video>
+
+<!-- Message -->
+<p id="msg"></p>
+
+<script>
+
+    // oncanplay event
+    function videoReady() {
+        document.getElementById("msg").innerHTML =
+            "Video ready to play ";
+    }
+
+    // onbeforeunload event
+    function warnUser() {
+        return "You have unsaved changes. Are you sure you want to leave?";
+    }
+
+</script>
+
+</body>
+
+</html>

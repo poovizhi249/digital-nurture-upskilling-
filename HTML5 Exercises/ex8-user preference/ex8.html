@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>User Preferences</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+        }
+
+        select, button {
+            padding: 8px;
+            margin: 10px 0;
+        }
+
+        #msg {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Event Preference Saver</h2>
+
+<!-- Event Selection -->
+<select id="eventType" onchange="savePreference()">
+    <option value="">Select Event</option>
+    <option value="Music Event">Music Event</option>
+    <option value="Food Festival">Food Festival</option>
+    <option value="Tech Meetup">Tech Meetup</option>
+    <option value="Sports Day">Sports Day</option>
+</select>
+
+<br>
+
+<!-- Clear button -->
+<button onclick="clearPreferences()">Clear Preferences</button>
+
+<p id="msg"></p>
+
+<script>
+
+    // Save to localStorage
+    function savePreference() {
+        let event = document.getElementById("eventType").value;
+
+        localStorage.setItem("preferredEvent", event);
+
+        // sessionStorage example (optional use)
+        sessionStorage.setItem("sessionEvent", event);
+
+        document.getElementById("msg").innerHTML =
+            "Preference saved: " + event;
+    }
+
+    // Load saved preference on page load
+    window.onload = function () {
+        let savedEvent = localStorage.getItem("preferredEvent");
+
+        if (savedEvent) {
+            document.getElementById("eventType").value = savedEvent;
+
+            document.getElementById("msg").innerHTML =
+                "Loaded saved preference: " + savedEvent;
+        }
+    };
+
+    // Clear storage
+    function clearPreferences() {
+        localStorage.clear();
+        sessionStorage.clear();
+
+        document.getElementById("eventType").value = "";
+        document.getElementById("msg").innerHTML =
+            "Preferences cleared ✔";
+    }
+
+</script>
+
+</body>
+
+</html>

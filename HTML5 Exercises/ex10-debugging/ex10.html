@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DevTools Debugging</title>
+
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            color: white;
+            text-align: center;
+            line-height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Debugging Demo</h2>
+
+<div class="box" id="myBox">
+    Hello Box
+</div>
+
+<button onclick="changeColor()">Change Color</button>
+
+<script>
+
+    function changeColor() {
+        console.log("Button clicked");
+
+        let box = document.getElementById("myBox");
+
+        console.log("Before change:", box.style.backgroundColor);
+
+        box.style.backgroundColor = "red";
+
+        console.log("After change:", box.style.backgroundColor);
+    }
+
+</script>
+
+</body>
+
+</html>
